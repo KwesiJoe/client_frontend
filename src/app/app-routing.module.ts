@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PortfolioComponent } from './dashboard/portfolio/portfolio.component';
 import { TradesComponent } from './dashboard/trades/trades.component';
+import { IsAuthenticatedGuard } from './is-authenticated.guard';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -11,10 +12,13 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'dashboard', component: DashboardComponent, children: [
-    {path: 'portfolio', component: PortfolioComponent}, 
-    {path: 'trades', component: TradesComponent}, 
-    {path: '', component: HomeComponent}]
+  {path: 'dashboard', component: DashboardComponent, 
+    canActivate: [IsAuthenticatedGuard], 
+    children: [
+      {path: 'portfolio', component: PortfolioComponent}, 
+      {path: 'trades', component: TradesComponent}, 
+      {path: '', component: HomeComponent}
+    ]
   }
 ];
 

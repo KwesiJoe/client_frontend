@@ -1,28 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+
+  private _isLoggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn = this._isLoggedIn.asObservable();
   
-  loginObj: any = {
-    email: "",
-    password: ""
-  };
+  loginForm = this.fb.group({
+    email: ["", Validators.required],
+    password: ["", Validators.required]
+  });
 
-  constructor(){
-
-  }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){}
 
   ngOnInit(): void {
     
   }
 
   onLogin() {
-    console.log(this.loginObj.email)
-    console.log(this.loginObj.password)
+    console.log(this.loginForm.value)
+    this.authService.login(this.loginForm.value).subscribe((response: any) => {
+      console.log(response);
+      this.router.navigateByUrl('/dashboard');
+    })
   }
   
 
