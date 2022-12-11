@@ -24,10 +24,6 @@ export class SignupComponent {
     
   }
 
-  showT(){
-    this.messageService.add({severity:'success', summary: 'Success', detail: 'User registered successfully.'});
-  }
-
   createUser(){
     console.log(this.signUpForm.value);
     this.authService.signUp(this.signUpForm.value).subscribe(response => {
