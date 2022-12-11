@@ -27,7 +27,7 @@
             <td>{{portfolio.profit}}</td>
             <td>{{portfolio.balance}}</td>
             <td>
-              <button class="text-white border p-1 bg-blue-500 rounded-md">VIEW</button> | 
+              <button class="text-white border p-1 bg-blue-500 rounded-md"><a [routerLink]="['/dashboard/portfolio', portfolio.id]">VIEW</a></button> | 
               <button (click)="deletePortfolio(portfolio)"
               class="text-white border p-1 bg-red-500 rounded-md">DELETE</button></td>
           </tr> 

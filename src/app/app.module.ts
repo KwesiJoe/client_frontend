@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { AddNewPortfolioModule } from './dashboard/portfolio/add-new-portfolio/add-new-portfolio.module';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
+import { PortfolioDetailsComponent } from './dashboard/portfolio/portfolio-details/portfolio-details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MessageService} from 'primeng/api';
     PortfolioComponent,
     TradesComponent,
     HomeComponent,
+    PortfolioDetailsComponent,
   ],
   imports: [
     BrowserModule,
