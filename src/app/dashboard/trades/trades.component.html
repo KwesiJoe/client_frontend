@@ -1,0 +1,92 @@
+<div class="p-6 h-screen">
+  <h2 class="text-2xl font-semibold">Trade History</h2>
+  <h3 class="text-gray-500">View your trades and transactions.</h3>
+
+  <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border w-fit justify-between mt-6 divide-x divide-dashed">
+    <li class="">
+        <button (click)="noSort()" class="inline-block py-3 px-6 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white" aria-current="page">All trades</button>
+    </li>
+    <li class="">
+        <button (click)="sortSell()" class="inline-block py-3 px-6 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Sell sides</button>
+    </li>
+    <li class="">
+        <button (click)="sortBuy()" class="inline-block py-3 px-6 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Buy sides</button>
+    </li>
+</ul>
+
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-6 overflow-scroll">
+  
+  <p-table [value]="trades" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+      <tr class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <th>TICKER</th>
+        <th>QUANTITY</th>
+        <th>PRICE</th>
+        <th>SIDE</th>
+        <th>STATUS</th>
+        <th>ORDER ID</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-trade>
+      <tr class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <td>{{trade.product}}</td>
+        <td>{{trade.quantity}}</td>
+        <td>{{trade.price}}</td>
+        <td>{{trade.side}}</td>
+        <td>{{trade.status}}</td>
+        <td>{{trade.orderId}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+<!-- <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-100 ">
+        <tr>
+            <th scope="col" class="py-3 px-6">
+                TICKER
+            </th>
+            <th scope="col" class="py-3 px-6">
+                QUANTITY
+            </th>
+            <th scope="col" class="py-3 px-6">
+                PRICE
+            </th>
+            <th scope="col" class="py-3 px-6">
+                SIDE
+            </th>
+            <th scope="col" class="py-3 px-6">
+                STATUS
+            </th>
+            <th scope="col" class="py-3 pl-6">
+              ORDER ID
+          </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let trade of trades"
+    class="divide-y divide-dashed divide-gray-400">
+        <tr class="bg-white  dark:border-gray-700 space-x-4">
+            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                {{trade.product}}
+            </th>
+            <td class="py-4 px-6">
+              {{trade.quantity}}
+            </td>
+            <td class="py-4 px-6">
+              {{trade.price}}
+            </td>
+            <td class="py-4 px-6">
+              {{trade.side}}
+            </td>
+            <td class="py-4 px-6">
+              {{trade.status}}
+            </td>
+            <td class="py-4 pl-6">
+              d28903da-e05d-4aea-9dda-766759a7e51f
+            </td>
+          </tr>
+    </tbody>
+</table> -->
+</div>
