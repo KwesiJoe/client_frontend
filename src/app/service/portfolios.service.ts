@@ -14,7 +14,7 @@ export class PortfolioService {
   //Fetch portfolios
 
   getPortfolios(): Observable<Portfolio[]> {
-    return this.http.get<Portfolio[]>(`${this.API_URL}/user/2`);
+    return this.http.get<Portfolio[]>(`${this.API_URL}/user/${localStorage.getItem('user_id')}`);
   }
 
   createPortfolio(postData: any){

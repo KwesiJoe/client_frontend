@@ -19,7 +19,7 @@ export class AddNewPortfolioComponent implements OnInit{
     balance: [0, Validators.required],
     value: [50],
     profit: [0],
-    userId: [2]
+    userId: [0]
   })
   
   constructor(private fb: FormBuilder, private portfolioService: PortfolioService, private messageService: MessageService){}
@@ -35,7 +35,7 @@ export class AddNewPortfolioComponent implements OnInit{
   }
   
   addPortfolio() {
-    this.portfolioForm.value.userId = 2
+    this.portfolioForm.value.userId = Number(localStorage.getItem('user_id'))
     console.log(this.portfolioForm.value);
     this.portfolioService.createPortfolio(this.portfolioForm.value).subscribe(response => {
       this.clickAdd.emit(response);
