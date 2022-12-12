@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
-import { PortfolioDetailsComponent } from './dashboard/portfolio/portfolio-details/portfolio-details.component';
+import { PortfolioDetailsComponent } from './dashboard/portfolio-details/portfolio-details.component';
 import { PortfolioComponent } from './dashboard/portfolio/portfolio.component';
 import { TradesComponent } from './dashboard/trades/trades.component';
 import { IsAuthenticatedGuard } from './is-authenticated.guard';

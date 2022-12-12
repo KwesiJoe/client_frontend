@@ -26,7 +26,9 @@ export class HomeComponent {
     price: [50],
     side: ["", Validators.required],
     type: ["", Validators.required],
-    pftId: [0, Validators.required]
+    pftId: [0],
+    userId: [0]
+
   })
 
   constructor(private fb: FormBuilder, private portfolioService: PortfolioService, private orderService: OrderService){}
@@ -37,6 +39,8 @@ export class HomeComponent {
   }
 
   createOrder(){
+    this.orderForm.value.userId = Number(localStorage.getItem('user_id'))
+    this.orderForm.value.pftId = Number(this.orderForm.value.pftId)
     console.log(this.orderForm.value);
     this.orderService.createOrder(this.orderForm.value).subscribe(response => {
       console.log(response)

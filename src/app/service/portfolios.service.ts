@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Portfolio } from '../interface/portfolio.interface';
+import { PortfolioDetails } from '../interface/portfolio-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class PortfolioService {
 
   deletePortfolio(portfolioId: number){
     return this.http.delete(`${this.API_URL}/${portfolioId}`); 
+  }
+
+  getOrdersByPortfoilio(portfolioId: number): Observable<PortfolioDetails[]>{
+    return this.http.get<PortfolioDetails[]>(`${this.API_URL}/${portfolioId}/`);
   }
 }
