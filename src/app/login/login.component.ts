@@ -3,11 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  providers: [MessageService]
 })
 export class LoginComponent {
 
@@ -19,7 +21,7 @@ export class LoginComponent {
     password: ["", Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private messageService: MessageService){}
 
   ngOnInit(): void {
     
@@ -30,6 +32,9 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe((response: any) => {
       console.log(response);
       this.router.navigateByUrl('/dashboard');
+    },
+    error => {
+      this.messageService.add({severity:'error', summary: 'Error', detail: 'Bad credentials'});
     })
   }
   
