@@ -11,6 +11,8 @@ import { OrderService } from 'src/app/service/order.service'
 })
 export class HomeComponent {
 
+  username = localStorage.getItem('firstName');
+
   portfolios: Portfolio[] = [];
 
   getPortfolioList(){
