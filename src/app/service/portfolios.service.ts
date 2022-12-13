@@ -8,7 +8,7 @@ import { PortfolioDetails } from '../interface/portfolio-details.interface';
   providedIn: 'root'
 })
 export class PortfolioService {
-  private readonly API_URL: string = "http://localhost:8081/api/portfolio";
+  private readonly API_URL: string = "https://tarin-ops.azurewebsites.net/api/portfolio";
 
   constructor(private http: HttpClient) { }
 
