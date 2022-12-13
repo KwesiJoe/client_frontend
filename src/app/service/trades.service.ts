@@ -14,7 +14,7 @@ export class TradesService {
   //Fetch trades
 
   getTrades(): Observable<Trade[]> {
-    return this.http.get<Trade[]>(`${this.API_URL}/orders`);
+    return this.http.get<Trade[]>(`${this.API_URL}/portfolios/${localStorage.getItem('user_id')}`);
   }
 }
 

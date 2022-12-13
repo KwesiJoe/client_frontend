@@ -79,12 +79,13 @@
               <label class="block text-gray-700 text-sm font-bold mb-2" for="portfolio">
                 Portfolio
               </label>
-              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="portfolio" name="portfolio" formControlName="pftId">
+              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="portfolio" name="portfolio" formControlName="portfolioId">
                 <option *ngFor="let p of portfolios" value={{p.id}}>{{p.name}}</option>
               </select>
             </div>
           </div>
           
+          <p-toast></p-toast>
           <div class="flex items-center justify-between py-8">
             <button (click)="createOrder()" class="bg-gray-700 hover:bg-gray-900 text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline" type="button">
               Submit order

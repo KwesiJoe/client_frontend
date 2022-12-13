@@ -1,7 +1,7 @@
 <div class="p-8">
   <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-6 overflow-scroll">
   
-    <p-table [value]="data" [paginator]="true" [rows]="10">
+    <p-table [value]="portfolioOrders" [paginator]="true" [rows]="10">
       <ng-template pTemplate="header">
         <tr class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <th>TICKER</th>
@@ -12,14 +12,14 @@
           <th>DATE</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-trade>
+      <ng-template pTemplate="body" let-order>
         <tr class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <td>Hi</td>
-          <td>Hi</td>
-          <td>Hi</td>
-          <td>Hi</td>
-          <td>Hi</td>
-          <td>Hi</td>
+          <td>{{order.product}}</td>
+          <td>{{order.type}}</td>
+          <td>{{order.quantity}}</td>
+          <td>{{order.quantity}}*{{order.price}}</td>
+          <td>{{order.price}}</td>
+          <td>{{order.created}}</td>
         </tr>
       </ng-template>
     </p-table>
