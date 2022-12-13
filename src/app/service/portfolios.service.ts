@@ -27,6 +27,6 @@ export class PortfolioService {
   }
 
   getOrdersByPortfoilio(portfolioId: number): Observable<PortfolioDetails[]>{
-    return this.http.get<PortfolioDetails[]>(`http://localhost:8081/api/order/portfolio/${portfolioId}/`);
+    return this.http.get<PortfolioDetails[]>(`${process.env.OPS_API_URL}/api/order/portfolio/${portfolioId}/`);
   }
 }

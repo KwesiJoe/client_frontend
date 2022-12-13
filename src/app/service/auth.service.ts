@@ -11,7 +11,7 @@ export class AuthService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
-  private readonly API_URL: string = "http://localhost:8080/api/auth";
+  private readonly API_URL: string = `${process.env.AUTH_API_URL}/api/auth`;
 
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('user_token');
