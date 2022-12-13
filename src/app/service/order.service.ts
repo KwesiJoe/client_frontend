@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  private readonly API_URL: string = `${process.env.OPS_API_URL}/api/order`;
+  private readonly API_URL: string = `https://tarin-ops.azurewebsites.net/api/order`;
 
   constructor(private http: HttpClient) { }
 

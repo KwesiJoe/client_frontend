@@ -23,15 +23,20 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
+          npm i -g @angular/cli
+          npm install --silent
           npm run build --if-present
-          npm run test --if-present
+          # npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: |
+            .
+            !**/node_modules/**
+            !**/dist/**
+            !**/.angular/**
 
   deploy:
     runs-on: ubuntu-latest
