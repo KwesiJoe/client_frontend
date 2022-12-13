@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="mt-24">
+  <div class="mt-20">
     <div class="m-auto w-full">
       <div class="mx-auto w-3/4">
         <form [formGroup]="orderForm" class="bg-white shadow-md rounded px-8 mb-4">
@@ -39,7 +39,10 @@
               <label class="block text-gray-700 text-sm font-bold mb-2" for="product">
                 Product
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="product" name="product" type="text" formControlName="product">
+              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="product" name="product" formControlName="product" [ngModel]="orderForm.value.product">
+                <option ngValue="" selected>--Select a product--</option>
+                <option *ngFor="let p of products" value={{p}} >{{p}}</option>
+              </select>
             </div>
             <div class="my-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="quantity">
@@ -59,7 +62,8 @@
               <label class="block text-gray-700 text-sm font-bold mb-2" for="side">
                 Side
               </label>
-              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="side" name="side" formControlName="side">
+              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="side" name="side" formControlName="side" [ngModel]="orderForm.value.side">
+                <option ngValue="" selected>--Select a side--</option>
                 <option>BUY</option>
                 <option>SELL</option>
               </select>
@@ -70,7 +74,8 @@
               <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
                 Type
               </label>
-              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" name="type" formControlName="type">
+              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" name="type" formControlName="type" [ngModel]="orderForm.value.type">
+                <option ngValue="" selected>--Select a type--</option>
                 <option>LIMIT</option>
                 <option>MARKET</option>
               </select>
@@ -79,8 +84,9 @@
               <label class="block text-gray-700 text-sm font-bold mb-2" for="portfolio">
                 Portfolio
               </label>
-              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="portfolio" name="portfolio" formControlName="portfolioId">
-                <option *ngFor="let p of portfolios" value={{p.id}}>{{p.name}}</option>
+              <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="portfolio" name="portfolioId" formControlName="portfolioId" [ngModel]="orderForm.value.portfolioId">
+                <option ngValue="" selected>--Select a portfolio--</option>
+                <option *ngFor="let p of portfolios" value={{p.id}} >{{p.name}}</option>
               </select>
             </div>
           </div>

@@ -13,6 +13,8 @@ import {MessageService} from 'primeng/api';
 })
 export class HomeComponent {
 
+  products = ["AAPL", "IBM", "NFLX", "GOOGL", "MSFT", "TSLA", "ORCL", "AMZN"];
+
   username = localStorage.getItem('firstName');
 
   portfolios: Portfolio[] = [];
@@ -30,7 +32,7 @@ export class HomeComponent {
     price: [0],
     side: ["", Validators.required],
     type: ["", Validators.required],
-    portfolioId: [0],
+    portfolioId: [0, Validators.required],
     userId: [0]
 
   })
